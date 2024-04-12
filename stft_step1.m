@@ -28,6 +28,5 @@ tempWin = HannWin.*temp;
 temp1 = fft(tempWin);
 temp2 = (abs(temp1)).^2;
 S(:,j) = temp2;
-
 end
-
+%適当
