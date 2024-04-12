@@ -17,7 +17,7 @@ J = ceil(SignalLen/ShiftWidth) + 1; %時間フレーム数
 
 SinWave = [C,SinWave,D]; %作った波形
 
-A = zeros(WinLen,J); %ゼロ行列
+S = zeros(WinLen,J); %ゼロ行列
 HannWinWidth = (0:1:WinLen-1); %ハン
 HannWin = 0.5 - 0.5*cos((2*pi*HannWinWidth)/(SignalLen-1));
 HannWint = HannWin.';
@@ -25,9 +25,9 @@ HannWint = HannWin.';
 for j = 1:J
 %%A(:,j) = SinWave((j-1)*ShiftWidth + 1 :(j-1)*ShiftWidth + WinLen); %それぞれの始点から窓長の最後までの要素
 temp = SinWave((j-1)*ShiftWidth + 1 :(j-1)*ShiftWidth + WinLen);
-tempWin = HannWint.*temp;
+tempWin = HannWin.*temp;
 temp1 = fft(tempWin);
-A(:,j) = temp1;
+S(:,j) = temp1;
 end
 
 %%B = HannWint.*A;
