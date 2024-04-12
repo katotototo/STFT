@@ -8,7 +8,7 @@ tMax = max(t); %時間の最大値
 SinWave = sin(2*pi*f*t); %読み込み信号
 
 SignalLen = tMax*Fs; %信号長
-n = 5;
+n = 10;
 WinLen = power(2,n); %窓長
 ShiftWidth = WinLen/2; %シフト幅
 J = ((SignalLen-WinLen)/ShiftWidth) - 1; %時間フレーム数
