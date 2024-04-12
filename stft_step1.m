@@ -23,7 +23,11 @@ HannWin = 0.5 - 0.5*cos((2*pi*HannWinWidth)/(SignalLen-1));
 HannWint = HannWin.';
 
 for j = 1:J
-A(:,j) = SinWave((j-1)*ShiftWidth + 1 :(j-1)*ShiftWidth + WinLen); %それぞれの始点から窓長の最後までの要素
+%%A(:,j) = SinWave((j-1)*ShiftWidth + 1 :(j-1)*ShiftWidth + WinLen); %それぞれの始点から窓長の最後までの要素
+temp = SinWave((j-1)*ShiftWidth + 1 :(j-1)*ShiftWidth + WinLen);
+tempWin = HannWint.*temp;
+temp1 = fft(tempWin);
+A(:,j) = temp1;
 end
 
-B = HannWint.*A;
+%%B = HannWint.*A;
