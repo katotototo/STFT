@@ -20,9 +20,10 @@ SinWave = [C,SinWave,D]; %作った波形
 A = zeros(WinLen,J); %ゼロ行列
 HannWinWidth = (0:1:WinLen-1); %ハン
 HannWin = 0.5 - 0.5*cos((2*pi*HannWinWidth)/(SignalLen-1));
+HannWint = HannWin.';
 
 for j = 1:J
 A(:,j) = SinWave((j-1)*ShiftWidth + 1 :(j-1)*ShiftWidth + WinLen); %それぞれの始点から窓長の最後までの要素
 end
-HannWint = HannWin.';
+
 B = HannWint.*A;
