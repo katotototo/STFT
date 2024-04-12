@@ -26,7 +26,8 @@ for j = 1:J
 temp = SinWave((j-1)*ShiftWidth + 1 :(j-1)*ShiftWidth + WinLen);
 tempWin = HannWin.*temp;
 temp1 = fft(tempWin);
-temp2 = (abs(temp1)).^2;
-S(:,j) = temp2;
+temp2 = (abs(temp1));
+temp3 = 20*log10(temp2);
+S(:,j) = temp3;
 end
 %適当
