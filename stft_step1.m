@@ -15,7 +15,7 @@ C = zeros(1,ShiftWidth);%前につけるベクトル
 D = zeros(1,WinLen-1);%後ろにつけるベクトル
 J = ceil(SignalLen/ShiftWidth) + 1; %時間フレーム数
 
-E = [C,SinWave,D];
+E = [C,SinWave,D]; %作った波形
 
 A = zeros(WinLen,J); %ゼロ行列
 HannWinWidth = (0:1:WinLen-1); %ハン
