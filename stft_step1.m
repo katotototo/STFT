@@ -30,4 +30,9 @@ temp2 = (abs(temp1));
 temp3 = 20*log10(temp2);
 S(:,j) = temp3;
 end
-%適当
+
+imagesc(S)
+xlabel("時間[s]");
+ylabel("周波数[Hz]");
+ax = gca;
+ax.YDir = 'reverse';
