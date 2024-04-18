@@ -1,6 +1,6 @@
-function S = f(SoundData,Fs,WinLen,ShiftWidth)
+function S = stft(Signal,Fs,WinLen,ShiftWidth)
 
-[Signal,Fs] = audioread("SoundData");
+%[Signal,Fs] = audioread("SoundData");
 %パラメータ設定
 % Fs = 16000; %サンプリング周波数
 % t = linspace(0,10,10*Fs);
@@ -38,7 +38,7 @@ for j = 1:J
     temp = Signal((j-1)*ShiftWidth + 1 :(j-1)*ShiftWidth + WinLen);
     tempWin = HannWin.*temp;
     S = fft(tempWin);
-    temp2 = (abs(temp1));
+    temp2 = (abs(S));
     temp3 = 20*log10(temp2);
     A(:,j) = temp3;
 end
