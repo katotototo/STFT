@@ -24,9 +24,8 @@ SignalLen = size(SinWave.',1);
 J = fix(SignalLen/ShiftWidth) - 1; %時間フレーム数
 
 S = zeros(WinLen,J); %ゼロ行列
-HannWinWidth = (0:1:WinLen-1); %ハン
-HannWin = 0.5 - 0.5*cos((2*pi*HannWinWidth)/(WinLen-1));
-%HannWin = hann((0:1:WinLen-1),0.5 - 0.5*cos((2*pi*(0:1:WinLen-1))/(WinLen-1)));
+%HannWinWidth = (0:1:WinLen-1); %ハン
+HannWin = hann((0:1:WinLen-1),0.5 - 0.5*cos((2*pi*HannWinWidth)/(WinLen-1)));
 
 for j = 1:J
 %%A(:,j) = SinWave((j-1)*ShiftWidth + 1 :(j-1)*ShiftWidth + WinLen); %それぞれの始点から窓長の最後までの要素
@@ -38,12 +37,9 @@ for j = 1:J
     S(:,j) = temp3;
 end
 
-XAxis = linspace(0,tMax,J);
-YAxis = linspace(0,Fs,WinLen);
-axis xy
-
-imagesc(XAxis,YAxis,S);
-axis xy
+XAxis = 
+imagesc(S)
 xlabel("時間[s]");
 ylabel("周波数[Hz]");
-colorbar
+ax = gca;
+ax.YDir = 'reverse';
