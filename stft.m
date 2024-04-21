@@ -28,7 +28,6 @@ end
 
 XAxis = linspace(0,SignalLen/Fs,J); %x軸設定
 YAxis = linspace(0,Fs,WinLen); %y軸設定
-axis xy
 
 imagesc(XAxis,YAxis,A);
 axis xy
