@@ -35,4 +35,7 @@ xlabel("時間[s]");
 ylabel("周波数[Hz]");
 ylim([0 Fs/2]);
 colorbar
+
+clim([-20 40]);
+fontsize("increase");
 end
