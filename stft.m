@@ -28,7 +28,6 @@ end
 
 XAxis = linspace(0,SignalLen/Fs,J); %x軸設定
 YAxis = linspace(0,Fs,WinLen); %y軸設定
-axis xy
 
 imagesc(XAxis,YAxis,A);
 axis xy
@@ -36,6 +35,7 @@ xlabel("時間[s]");
 ylabel("周波数[Hz]");
 ylim([0 Fs/2]);
 colorbar
+
 clim([-20 40]);
 fontsize("increase");
 end
